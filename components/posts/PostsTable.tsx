@@ -13,7 +13,6 @@ import {
 import posts from "@/data/posts";
 import { Post } from "@/type/post";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 interface PostsTableProps {
   limit?: number;
@@ -43,13 +42,14 @@ const PostsTable = ({ limit, title }: PostsTableProps) => {
           <TableRow>
             <TableHead>Title</TableHead>
             <TableHead className="hidden md:table-cell">Author</TableHead>
-            <TableHead className="hidden md:table-cell text-center">
+            <TableHead className="hidden md:table-cell text-right">
               Date
             </TableHead>
+            <TableHead>View</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {sortedPosts.map((post) => (
+          {filteredPosts.map((post) => (
             <TableRow key={post.id}>
               <TableCell>{post.title}</TableCell>
               <TableCell className="hidden md:table-cell">
