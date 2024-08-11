@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import { Sidebar } from "@/components/Sidebar";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Sidebar />
           </div>
           <div className="p-5 w-full md:max-w-[1140px]">{children}</div>
+          <Toaster />
         </div>
       </body>
     </html>
