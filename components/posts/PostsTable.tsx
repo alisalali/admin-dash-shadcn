@@ -31,6 +31,9 @@ const PostsTable = ({ limit, title }: PostsTableProps) => {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
+  //filter post to limit post
+  const filteredPosts = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+
   return (
     <div className="mt-10">
       <h3 className="text-2xl mb-4 font-semibold">{title ? title : "Posts"}</h3>
@@ -46,7 +49,7 @@ const PostsTable = ({ limit, title }: PostsTableProps) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <TableRow key={post.id}>
               <TableCell>{post.title}</TableCell>
               <TableCell className="hidden md:table-cell">
